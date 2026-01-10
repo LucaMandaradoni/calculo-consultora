@@ -1,6 +1,7 @@
 # ===== Configuracion =====
 CC      = x86_64-w64-mingw32-gcc
 CFLAGS  = -Wall -Wextra -std=c11 -Iinclude -g
+LDFLAGS = -lm  
 LDFLAGS =
 TARGET  = build/mi_programa.exe
 

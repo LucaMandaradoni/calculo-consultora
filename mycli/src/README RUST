@@ -1,0 +1,129 @@
+programar rust
+
+
+println!("string");
+
+	lleva exclamacion porque estamos llamando a la macro, sin ello llamo a la funcion
+
+Para correr el programa puedo hacer en terminal:
+	cargo run
+
+Para hacer compilacion
+	cargo build --release
+	esto nos crea una version optimisada del codigo
+
+
+VARIABLES
+	son inmutables
+	let x:type = valor;	-> el valor puede ser inferido
+	println!("el valor de x es {}", x);
+
+	si hago x = 2 no se puede, porque son inmutables
+	para que sea posible debo declararla así
+	let mut x:type = valor;
+
+	hay Constantes!!!
+	const VARIABLE_CONSTANTE : type = valor;
+	en el caso de las const hay que siempre poner el type!!!
+	se suelen poner al comienzo del archivo y en mayusculas
+
+
+SHADOWING -> reasignar valor a una variable
+	cuando redefino una variable puedo redefinirla usando su valor anterior
+	si no utilizo el valor anterior para su declaracion solo será pisada
+	con el nuevo valor
+
+	let x:i32 = 1;
+	let x:i32 = x + 23;	-> 1 + 23
+	let x:i32 = x-23/23;	-> 24 - 23/23 -> 23
+
+TIPOS DE DATO:
+	INT
+	ej i8, i16, u32	(u32 es sin signo de 32 bits)
+	el numero es la cant de bits, en el caso de i8 podré alojar una variable
+		de maximo con signo será 127 y minimo -128
+		si es sin signo será maximno 256 y 0 minimo
+
+	si un numero será pequeño podes ahorrar bits de este modo
+	NO SE PUEDEN SUMAR UN i8 con un i16!!! deben ser el mismo tipo
+
+	FLOAT:
+	let numerito:f32  = 2.65
+
+	BOOL:
+	let variable:bool = true;
+
+	CHAT:
+	let my_char:char = 'a'
+
+	
+	COLECCIONES
+
+		TUPLAS
+		let tup:(i32, f64, char) = (1, 2.5, 'b')
+
+		ARRAYS
+		let arr: [i32, 4] = [1, 2, 3, 4]
+			Siempre de mismo tipo de dato
+			el tamaño no es obligatorio ponerlo
+		let val:i32 = arr[0]	-> 1
+		let val:i32 = arr [4]	-> ERROR, LLEGA HASTA EL 3
+
+		para iterar lista:
+			for i: &i32 in arr.iret(){
+				println!("{}", i);
+			}
+
+BUCLES
+
+let mut ent:i32 = 0
+while ent < 10 {
+	ent = ent + 1;
+}
+
+el loop es como un while(true). solo frena con un break
+loop{
+	ent = ent - 10l
+	break;
+}
+
+
+FUNCIONES
+
+fn nombre_funcion() -> type_del_return {}
+
+fn compound() -> i32{
+	let ent:i32 = 3;
+	return ent;
+	
+	(en lugar de return puedo tambien dejar solo "ent" sin punto y coma al final)
+}	
+
+fn main(){}
+
+
+
+CONDICIONALES
+
+fn calcular_factorial(number:u123) -> i128 {
+
+	if number == 0 || numer == 1{
+		return 1;
+	}
+	else{
+		let mut result:u128 = number;
+
+		for i in (1..number).rev(){
+			result = result * i;
+		}
+		return result;
+	}
+
+}
+
+luego llamamos a la funcion en el main:
+
+fn main(){
+	let resultado_factorial:u128 = calcular_factorial(number:25);
+	println!("el factorial es {}", resultado_factorial)
+}
